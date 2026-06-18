@@ -50,6 +50,29 @@ class Reflect_Hero_Widget extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'bg_image_position',
+			[
+				'label' => esc_html__( 'Image Position', 'reflect-addons' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'center center',
+				'options' => [
+					'center center' => esc_html__( 'Center Center', 'reflect-addons' ),
+					'center left'   => esc_html__( 'Center Left', 'reflect-addons' ),
+					'center right'  => esc_html__( 'Center Right', 'reflect-addons' ),
+					'top center'    => esc_html__( 'Top Center', 'reflect-addons' ),
+					'top left'      => esc_html__( 'Top Left', 'reflect-addons' ),
+					'top right'     => esc_html__( 'Top Right', 'reflect-addons' ),
+					'bottom center' => esc_html__( 'Bottom Center', 'reflect-addons' ),
+					'bottom left'   => esc_html__( 'Bottom Left', 'reflect-addons' ),
+					'bottom right'  => esc_html__( 'Bottom Right', 'reflect-addons' ),
+				],
+				'selectors' => [
+					'{{WRAPPER}} .reflect-hero-img' => 'object-position: {{VALUE}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'eyebrow',
 			[
@@ -325,11 +348,33 @@ class Reflect_Hero_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
+			'primary_hover_text_color',
+			[
+				'label' => esc_html__( 'Hover Text Color', 'reflect-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .reflect-btn-gold:hover' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'secondary_heading',
 			[
 				'label' => esc_html__( 'Secondary Button', 'reflect-addons' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'secondary_bg',
+			[
+				'label' => esc_html__( 'Background Color', 'reflect-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .reflect-btn-ghost' => 'background-color: {{VALUE}};',
+				],
 			]
 		);
 
@@ -351,6 +396,17 @@ class Reflect_Hero_Widget extends Widget_Base {
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .reflect-btn-ghost' => 'color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'secondary_hover_bg',
+			[
+				'label' => esc_html__( 'Hover Background Color', 'reflect-addons' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .reflect-btn-ghost:hover' => 'background-color: {{VALUE}};',
 				],
 			]
 		);
