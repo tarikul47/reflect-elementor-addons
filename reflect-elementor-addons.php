@@ -149,11 +149,13 @@ final class Reflect_Elementor_Addons {
 		require_once( __DIR__ . '/widgets/reflect-services.php' );
 		require_once( __DIR__ . '/widgets/reflect-why-items.php' );
 		require_once( __DIR__ . '/widgets/reflect-hero.php' );
+		require_once( __DIR__ . '/widgets/reflect-testimonials.php' );
 
 		$widgets_manager->register( new \Reflect_Grid_Cards_Widget() );
 		$widgets_manager->register( new \Reflect_Services_Widget() );
 		$widgets_manager->register( new \Reflect_Why_Items_Widget() );
 		$widgets_manager->register( new \Reflect_Hero_Widget() );
+		$widgets_manager->register( new \Reflect_Testimonials_Widget() );
 	}
 
     /**
