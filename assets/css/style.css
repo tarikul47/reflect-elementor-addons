@@ -620,6 +620,7 @@ figure.tst::before {
 
 /* The Quote Text Box */
 blockquote.q {
+    background: transparent;
     font-family: var(--reflect-serif);
     font-size: clamp(18px, 2.2vw, 24px);
     color: var(--reflect-navy-deep);
@@ -671,3 +672,354 @@ blockquote.q {
         margin-bottom: 28px;
     }
 }
+
+
+/* About us page css */
+
+:root {
+    --forest: #1F5C4A;
+    --navy: #1F3A5F;
+    --gold: #C7A24A;
+    --cream: #F7F5F0;
+    --ink: #0f1b2d;
+    --muted: #5b6678;
+    --line: rgba(31, 58, 95, .12);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased
+}
+
+img {
+    max-width: 100%;
+    display: block
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--serif);
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1.15;
+    color: var(--navy)
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px
+}
+
+.eyebrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--gold);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: .3s
+}
+
+.btn:hover {
+    background: var(--navy)
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold)
+}
+
+.btn-outline:hover {
+    background: var(--gold);
+    color: #fff
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(rgba(31, 58, 95, .78), rgba(31, 92, 74, .78)), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80') center/cover
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: clamp(40px, 6vw, 72px);
+    margin-bottom: 14px
+}
+
+.hero .crumb {
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .85
+}
+
+.hero .crumb span {
+    color: var(--gold)
+}
+
+section {
+    padding: 96px 0
+}
+
+/* ABOUT US */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center
+}
+
+.about-media img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 6px
+}
+
+.about h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 14px 0 24px;
+    color: var(--navy)
+}
+
+.about p {
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.7
+}
+
+.about p:last-child {
+    margin-bottom: 0
+}
+
+/* VALUES GRID */
+.values {
+    background: var(--cream)
+}
+
+.values-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 64px
+}
+
+.values-head h2 {
+    font-size: clamp(30px, 3.6vw, 44px);
+    margin-top: 10px
+}
+
+.values-head p {
+    color: var(--muted);
+    margin-top: 14px;
+    font-size: 16px
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto
+}
+
+.value {
+    background: #fff;
+    border-radius: 8px;
+    padding: 44px 32px;
+    text-align: center;
+    box-shadow: 0 10px 30px -20px rgba(31, 58, 95, .18);
+    transition: .3s;
+    border: 1px solid var(--line)
+}
+
+.value:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px -20px rgba(31, 58, 95, .28)
+}
+
+.value .icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 22px;
+    color: var(--gold)
+}
+
+.value h4 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--navy)
+}
+
+.value p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6
+}
+
+/* PROMISE BAND */
+.promise-band {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 90px 0
+}
+
+.promise-band h2 {
+    color: #fff;
+    font-size: clamp(28px, 3.4vw, 40px);
+    margin: 10px 0 18px
+}
+
+.promise-band .tagline {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 18px
+}
+
+.promise-band p {
+    color: rgba(255, 255, 255, .82);
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.7
+}
+
+/* CTA */
+.cta-band {
+    text-align: center;
+    padding: 80px 0
+}
+
+.cta-band h2 {
+    font-size: clamp(28px, 3.4vw, 40px);
+    margin-bottom: 14px;
+    color: var(--navy)
+}
+
+.cta-band p {
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 28px
+}
+
+/* FOOTER */
+footer {
+    background: #dfeae3;
+    padding: 64px 0 24px;
+    color: var(--navy);
+    font-size: 14px
+}
+
+.foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(31, 58, 95, .15)
+}
+
+.foot-grid h5 {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    color: var(--navy)
+}
+
+.foot-grid a,
+.foot-grid p {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-size: 14px
+}
+
+.foot-grid a:hover {
+    color: var(--gold)
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 24px;
+    color: var(--muted);
+    font-size: 13px
+}
+
+/* DECORATIVE DIVIDER */
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 24px;
+    border-radius: 2px
+}
+
+@media (max-width: 900px) {
+    section {
+        padding: 64px 0
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 40px
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 24px
+    }
+
+    .foot-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px
+    }
+}
+
+/* About us page css */
