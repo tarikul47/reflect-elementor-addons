@@ -158,41 +158,65 @@ final class Reflect_Elementor_Addons
 	 */
 	public function register_widgets($widgets_manager)
 	{
-		require_once(__DIR__ . '/widgets/reflect-grid-cards.php');
-		require_once(__DIR__ . '/widgets/reflect-services.php');
-		require_once(__DIR__ . '/widgets/reflect-why-items.php');
-		require_once(__DIR__ . '/widgets/reflect-hero.php');
-		require_once(__DIR__ . '/widgets/reflect-testimonials.php');
+        // Core widget includes
+        require_once( __DIR__ . '/widgets/reflect-grid-cards.php' );
+        require_once( __DIR__ . '/widgets/reflect-services.php' );
+        require_once( __DIR__ . '/widgets/reflect-why-items.php' );
+        require_once( __DIR__ . '/widgets/reflect-hero.php' );
+        require_once( __DIR__ . '/widgets/reflect-testimonials.php' );
+        // Additional custom widgets
+        require_once( __DIR__ . '/widgets/widget-about-us.php' );
+        require_once( __DIR__ . '/widgets/widget-cta-band.php' );
+        require_once( __DIR__ . '/widgets/widget-promise-band.php' );
+        require_once( __DIR__ . '/widgets/widget-values-grid.php' );
 
-
-		require_once(__DIR__ . '/widgets/widget-about-us.php');
-		require_once(__DIR__ . '/widgets/widget-cta-band.php');
-		require_once(__DIR__ . '/widgets/widget-promise-band.php');
-		require_once(__DIR__ . '/widgets/widget-values-grid.php');
-
-
-
-		$widgets_manager->register(new \Reflect_Grid_Cards_Widget());
-		$widgets_manager->register(new \Reflect_Services_Widget());
-		$widgets_manager->register(new \Reflect_Why_Items_Widget());
-		$widgets_manager->register(new \Reflect_Hero_Widget());
-		$widgets_manager->register(new \Reflect_Testimonials_Widget());
-
+        $widgets_manager->register( new \Reflect_Grid_Cards_Widget() );
+        $widgets_manager->register( new \Reflect_Services_Widget() );
+        $widgets_manager->register( new \Reflect_Why_Items_Widget() );
+        $widgets_manager->register( new \Reflect_Hero_Widget() );
+        $widgets_manager->register( new \Reflect_Testimonials_Widget() );
+        // Register additional widgets (assuming class names match file names)
+        if ( class_exists( 'Widget_About_Us' ) ) {
+            $widgets_manager->register( new \Widget_About_Us() );
+        }
+        if ( class_exists( 'Widget_CTA_Band' ) ) {
+            $widgets_manager->register( new \Widget_CTA_Band() );
+        }
+        if ( class_exists( 'Widget_Promise_Band' ) ) {
+            $widgets_manager->register( new \Widget_Promise_Band() );
+        }
+        if ( class_exists( 'Widget_Values_Grid' ) ) {
+            $widgets_manager->register( new \Widget_Values_Grid() );
+        }
 
 		$widgets_manager->register(new \Elementor_Reflect_About_Widget());
 		$widgets_manager->register(new \Elementor_Reflect_CTA_Widget());
 		$widgets_manager->register(new \Elementor_Reflect_Promise_Widget());
 		$widgets_manager->register(new \Elementor_Reflect_Values_Widget());
-	}
+	        // Load styles for Elementor editor as well
+        add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'editor_scripts' ] );
 
-	/**
-	 * Widget Scripts/Styles
-	 */
-	public function widget_scripts()
-	{
-		wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], null);
-		wp_enqueue_style('reflect-addons-style', plugins_url('/assets/css/style.css', __FILE__), [], self::VERSION);
-	}
+    }
+
+    /**
+     * Enqueue styles for Elementor editor
+     */
+    public function editor_scripts() {
+        wp_enqueue_style(
+            'reflect-addons-style',
+            plugins_url( '/assets/css/style.css', __FILE__ ),
+            [],
+            self::VERSION
+        );
+    }
+
+    /**
+     * Widget Scripts/Styles (frontend)
+     */
+    public function widget_scripts() {
+        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], null );
+        wp_enqueue_style( 'reflect-addons-style', plugins_url( '/assets/css/style.css', __FILE__ ), [], self::VERSION );
+    }
 }
 
 Reflect_Elementor_Addons::instance();
