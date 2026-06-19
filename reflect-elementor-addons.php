@@ -136,7 +136,7 @@ final class Reflect_Elementor_Addons {
 			'reflect-addons',
 			[
 				'title' => esc_html__( 'Reflect Addons', 'reflect-addons' ),
-				'icon' => 'fa fa-plug',
+				'icon' => 'eicon-settings',
 			]
 		);
 	}
@@ -162,6 +162,7 @@ final class Reflect_Elementor_Addons {
      * Widget Scripts/Styles
      */
     public function widget_scripts() {
+        wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', [], null );
         wp_enqueue_style( 'reflect-addons-style', plugins_url( '/assets/css/style.css', __FILE__ ), [], self::VERSION );
     }
 }
