@@ -61,7 +61,8 @@
 }
 
 .sec-head p,
-.who.sec .sec-head p {
+.who.sec .sec-head p,
+#reflect-sub-title {
     max-width: 380px;
     color: var(--reflect-muted);
     font-family: var(--reflect-sans);
