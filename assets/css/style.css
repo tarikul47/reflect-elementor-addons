@@ -949,8 +949,8 @@ section {
 
 /* FOOTER */
 footer {
-    background: #dfeae3;
-    padding: 64px 0 24px;
+    /* background: #dfeae3;
+    padding: 64px 0 24px; */
     color: var(--navy);
     font-size: 14px
 }
