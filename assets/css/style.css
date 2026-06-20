@@ -68,6 +68,10 @@
     font-family: var(--reflect-sans);
 }
 
+#reflect-sub-title {
+    margin-bottom: 0;
+}
+
 .eyebrow,
 .reflect-eyebrow {
     font-family: var(--reflect-sans);
